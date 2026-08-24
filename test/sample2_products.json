@@ -1,0 +1,122 @@
+[
+  {
+    "product_id": 1,
+    "name": "Item1",
+    "price": 118.66,
+    "in_stock": false
+  },
+  {
+    "product_id": 2,
+    "name": "Item2",
+    "price": 202.49,
+    "in_stock": true
+  },
+  {
+    "product_id": 3,
+    "name": "Item3",
+    "price": 235.75,
+    "in_stock": false
+  },
+  {
+    "product_id": 4,
+    "name": "Item4",
+    "price": 117.45,
+    "in_stock": true
+  },
+  {
+    "product_id": 5,
+    "name": "Item5",
+    "price": 146.1,
+    "in_stock": false
+  },
+  {
+    "product_id": 6,
+    "name": "Item6",
+    "price": 213.98,
+    "in_stock": false
+  },
+  {
+    "product_id": 7,
+    "name": "Item7",
+    "price": 197.68,
+    "in_stock": true
+  },
+  {
+    "product_id": 8,
+    "name": "Item8",
+    "price": 155.65,
+    "in_stock": true
+  },
+  {
+    "product_id": 9,
+    "name": "Item9",
+    "price": 233.45,
+    "in_stock": true
+  },
+  {
+    "product_id": 10,
+    "name": "Item10",
+    "price": 127.29,
+    "in_stock": false
+  },
+  {
+    "product_id": 11,
+    "name": "Item11",
+    "price": 286.22,
+    "in_stock": false
+  },
+  {
+    "product_id": 12,
+    "name": "Item12",
+    "price": 143.15,
+    "in_stock": false
+  },
+  {
+    "product_id": 13,
+    "name": "Item13",
+    "price": 201.17,
+    "in_stock": true
+  },
+  {
+    "product_id": 14,
+    "name": "Item14",
+    "price": 121.27,
+    "in_stock": true
+  },
+  {
+    "product_id": 15,
+    "name": "Item15",
+    "price": 160.42,
+    "in_stock": true
+  },
+  {
+    "product_id": 16,
+    "name": "Item16",
+    "price": 133.57,
+    "in_stock": true
+  },
+  {
+    "product_id": 17,
+    "name": "Item17",
+    "price": 149.52,
+    "in_stock": false
+  },
+  {
+    "product_id": 18,
+    "name": "Item18",
+    "price": 175.3,
+    "in_stock": true
+  },
+  {
+    "product_id": 19,
+    "name": "Item19",
+    "price": 282.89,
+    "in_stock": false
+  },
+  {
+    "product_id": 20,
+    "name": "Item20",
+    "price": 150.63,
+    "in_stock": false
+  }
+]

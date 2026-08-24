@@ -1,0 +1,4 @@
+pandas
+duckdb
+openai
+python-dotenv

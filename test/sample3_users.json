@@ -1,0 +1,182 @@
+[
+  {
+    "user_id": 1,
+    "login_count": 27,
+    "last_login": "2021-12-09",
+    "plan": "free"
+  },
+  {
+    "user_id": 2,
+    "login_count": 35,
+    "last_login": "2023-01-11",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 3,
+    "login_count": 40,
+    "last_login": "2021-11-09",
+    "plan": "pro"
+  },
+  {
+    "user_id": 4,
+    "login_count": 39,
+    "last_login": "2020-02-27",
+    "plan": "free"
+  },
+  {
+    "user_id": 5,
+    "login_count": 41,
+    "last_login": "2020-12-28",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 6,
+    "login_count": 38,
+    "last_login": "2021-01-05",
+    "plan": "free"
+  },
+  {
+    "user_id": 7,
+    "login_count": 36,
+    "last_login": "2024-06-20",
+    "plan": "pro"
+  },
+  {
+    "user_id": 8,
+    "login_count": 3,
+    "last_login": "2024-09-19",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 9,
+    "login_count": 5,
+    "last_login": "2020-06-19",
+    "plan": "free"
+  },
+  {
+    "user_id": 10,
+    "login_count": 29,
+    "last_login": "2020-01-30",
+    "plan": "pro"
+  },
+  {
+    "user_id": 11,
+    "login_count": 16,
+    "last_login": "2021-07-04",
+    "plan": "free"
+  },
+  {
+    "user_id": 12,
+    "login_count": 40,
+    "last_login": "2021-01-13",
+    "plan": "pro"
+  },
+  {
+    "user_id": 13,
+    "login_count": 19,
+    "last_login": "2020-05-22",
+    "plan": "free"
+  },
+  {
+    "user_id": 14,
+    "login_count": 11,
+    "last_login": "2021-06-06",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 15,
+    "login_count": 11,
+    "last_login": "2023-09-06",
+    "plan": "pro"
+  },
+  {
+    "user_id": 16,
+    "login_count": 42,
+    "last_login": "2023-12-28",
+    "plan": "pro"
+  },
+  {
+    "user_id": 17,
+    "login_count": 30,
+    "last_login": "2023-12-09",
+    "plan": "pro"
+  },
+  {
+    "user_id": 18,
+    "login_count": 32,
+    "last_login": "2022-08-28",
+    "plan": "free"
+  },
+  {
+    "user_id": 19,
+    "login_count": 2,
+    "last_login": "2021-09-30",
+    "plan": "pro"
+  },
+  {
+    "user_id": 20,
+    "login_count": 22,
+    "last_login": "2022-05-12",
+    "plan": "free"
+  },
+  {
+    "user_id": 21,
+    "login_count": 17,
+    "last_login": "2020-08-10",
+    "plan": "pro"
+  },
+  {
+    "user_id": 22,
+    "login_count": 47,
+    "last_login": "2022-11-10",
+    "plan": "free"
+  },
+  {
+    "user_id": 23,
+    "login_count": 39,
+    "last_login": "2022-06-03",
+    "plan": "free"
+  },
+  {
+    "user_id": 24,
+    "login_count": 15,
+    "last_login": "2020-02-06",
+    "plan": "pro"
+  },
+  {
+    "user_id": 25,
+    "login_count": 10,
+    "last_login": "2020-03-13",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 26,
+    "login_count": 11,
+    "last_login": "2022-07-01",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 27,
+    "login_count": 33,
+    "last_login": "2023-10-20",
+    "plan": "pro"
+  },
+  {
+    "user_id": 28,
+    "login_count": 35,
+    "last_login": "2024-08-31",
+    "plan": "free"
+  },
+  {
+    "user_id": 29,
+    "login_count": 41,
+    "last_login": "2024-06-21",
+    "plan": "enterprise"
+  },
+  {
+    "user_id": 30,
+    "login_count": 34,
+    "last_login": "2022-07-12",
+    "plan": "free"
+  }
+]

@@ -1,0 +1,51 @@
+employee_id,first_name,department,salary,join_date,performance_score,email
+14,Sybil, Engineering    ,72493.0,2020-06-10,29.0,sybil@company.com
+40,,HR,93424.0,,43.0,charlie@company.com
+31,,IT,55157.0,2024-04-14,50.0,yvonne@company.com
+6,Heidi,Sales,,2022-09-13,49.0,heidi@company.com
+18,Bob, IT    ,41934.0,2021-03-16,12.0,bob@company.com
+17,David,Sales,65112.0,2024-08-12,25.0,david@company.com
+27,Bob,Marketing,,2021-02-15,88.0,bob@company.com
+26,,IT,41267.0,2020-03-18,,peggy@company.com
+33,Judy, IT    ,56683.0,2023-07-12,25.0,judy@company.com
+20,,,105909.0,2021-01-18,68.0,xavier@company.com
+13,Frank,Marketing,109163.0,2023-04-18,78.0,frank@company.com
+5,Olivia,Marketing,,2022-03-15,82.0,olivia@company.com
+38,Mallory,HR,106162.0,2024-08-12,55.0,mallory@company.com
+9,Peggy,IT,,2023-08-18,50.0,peggy@company.com
+4,   Charlie  ,IT,78427.0,2024-06-19,81.0,charlie@company.com
+7,Grace,,,2025-08-16,28.0,grace@company.com
+13,Frank,Marketing,109163.0,2023-04-18,78.0,frank@company.com
+16,   David  ,Engineering,,2023-07-17,46.0,david@company.com
+1,David,,76048.0,2021-03-11,,david@company.com
+16,   David  ,Engineering,,2023-07-17,46.0,david@company.com
+10,Mallory,Engineering,,2021-08-10,56.0,mallory@company.com
+17,David,Sales,65112.0,2024-08-12,25.0,david@company.com
+25,   Ivan  , IT    ,104032.0,2020-02-16,,ivan@company.com
+35,,,70784.0,2022-04-13,87.0,mallory@company.com
+32,Grace,Marketing,96531.0,2025-06-19,9.0,grace@company.com
+1,David,,76048.0,2021-03-11,,david@company.com
+12,Judy,Sales,,2024-02-11,31.0,judy@company.com
+28,Frank,HR,43248.0,2025-06-16,,frank@company.com
+34,Mallory, HR    ,,2025-04-18,57.0,mallory@company.com
+6,Heidi,Sales,,2022-09-13,49.0,heidi@company.com
+30,Victor, HR    ,110282.0,2020-02-14,43.0,victor@company.com
+12,Judy,Sales,,2024-02-11,31.0,judy@company.com
+37,   Heidi  ,,107889.0,2020-09-13,60.0,heidi@company.com
+2,Victor, IT    ,43478.0,2021-09-16,72.0,victor@company.com
+22,Mallory,,74814.0,2021-05-17,51.0,mallory@company.com
+3,Eve, Sales    ,84118.0,2020-07-11,,eve@company.com
+10,Mallory,Engineering,,2021-08-10,56.0,mallory@company.com
+36,   Sybil  ,HR,115454.0,2025-07-17,25.0,sybil@company.com
+24,Victor, Engineering    ,112692.0,2025-02-12,39.0,victor@company.com
+38,Mallory,HR,106162.0,2024-08-12,55.0,mallory@company.com
+11,Judy, IT    ,119818.0,2021-06-12,,judy@company.com
+23,Charlie, IT    ,67938.0,2022-03-15,65.0,charlie@company.com
+19,Sybil,Marketing,95444.0,,90.0,sybil@company.com
+2,Victor, IT    ,43478.0,2021-09-16,72.0,victor@company.com
+21,,IT,72271.0,2024-01-19,75.0,david@company.com
+8,   Xavier  ,,,2022-04-12,52.0,xavier@company.com
+9,Peggy,IT,,2023-08-18,50.0,peggy@company.com
+15,Mallory,Engineering,107391.0,2022-08-13,31.0,mallory@company.com
+29,Trent,Sales,,2022-05-13,59.0,trent@company.com
+39,Heidi, Marketing    ,97654.0,2025-05-13,10.0,heidi@company.com

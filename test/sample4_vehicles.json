@@ -1,0 +1,282 @@
+[
+  {
+    "vehicle_id": 1,
+    "make": "Toyota",
+    "year": 2017,
+    "mileage": 177921,
+    "price": 23882.15
+  },
+  {
+    "vehicle_id": 2,
+    "make": "Ford",
+    "year": 2018,
+    "mileage": 16410,
+    "price": 30023.15
+  },
+  {
+    "vehicle_id": 3,
+    "make": "Honda",
+    "year": 2011,
+    "mileage": 13436,
+    "price": 13642.69
+  },
+  {
+    "vehicle_id": 4,
+    "make": "Toyota",
+    "year": 2014,
+    "mileage": 79087,
+    "price": 30266.0
+  },
+  {
+    "vehicle_id": 5,
+    "make": "Kia",
+    "year": 2023,
+    "mileage": 67154,
+    "price": 6954.86
+  },
+  {
+    "vehicle_id": 6,
+    "make": "Toyota",
+    "year": 2023,
+    "mileage": 58040,
+    "price": 38563.64
+  },
+  {
+    "vehicle_id": 7,
+    "make": "Kia",
+    "year": 2010,
+    "mileage": 185555,
+    "price": 25672.59
+  },
+  {
+    "vehicle_id": 8,
+    "make": "Toyota",
+    "year": 2017,
+    "mileage": 53535,
+    "price": 15183.37
+  },
+  {
+    "vehicle_id": 9,
+    "make": "Honda",
+    "year": 2023,
+    "mileage": 177725,
+    "price": 36069.5
+  },
+  {
+    "vehicle_id": 10,
+    "make": "Honda",
+    "year": 2020,
+    "mileage": 28374,
+    "price": 37642.25
+  },
+  {
+    "vehicle_id": 11,
+    "make": "Kia",
+    "year": 2014,
+    "mileage": 133148,
+    "price": 20992.4
+  },
+  {
+    "vehicle_id": 12,
+    "make": "Ford",
+    "year": 2024,
+    "mileage": 106467,
+    "price": 36187.77
+  },
+  {
+    "vehicle_id": 13,
+    "make": "Toyota",
+    "year": 2010,
+    "mileage": 53652,
+    "price": 34586.4
+  },
+  {
+    "vehicle_id": 14,
+    "make": "Honda",
+    "year": 2015,
+    "mileage": 113522,
+    "price": 10095.13
+  },
+  {
+    "vehicle_id": 15,
+    "make": "Toyota",
+    "year": 2017,
+    "mileage": 144557,
+    "price": 15066.29
+  },
+  {
+    "vehicle_id": 16,
+    "make": "Kia",
+    "year": 2022,
+    "mileage": 62509,
+    "price": 4482.27
+  },
+  {
+    "vehicle_id": 17,
+    "make": "Toyota",
+    "year": 2007,
+    "mileage": 35869,
+    "price": 8448.38
+  },
+  {
+    "vehicle_id": 18,
+    "make": "Honda",
+    "year": 2013,
+    "mileage": 199997,
+    "price": 14624.87
+  },
+  {
+    "vehicle_id": 19,
+    "make": "Ford",
+    "year": 2016,
+    "mileage": 89827,
+    "price": 14930.84
+  },
+  {
+    "vehicle_id": 20,
+    "make": "Ford",
+    "year": 2012,
+    "mileage": 159330,
+    "price": 31622.51
+  },
+  {
+    "vehicle_id": 21,
+    "make": "Kia",
+    "year": 2009,
+    "mileage": 153032,
+    "price": 22944.48
+  },
+  {
+    "vehicle_id": 22,
+    "make": "Toyota",
+    "year": 2015,
+    "mileage": 11259,
+    "price": 17450.76
+  },
+  {
+    "vehicle_id": 23,
+    "make": "Kia",
+    "year": 2009,
+    "mileage": 33772,
+    "price": 14954.1
+  },
+  {
+    "vehicle_id": 24,
+    "make": "Kia",
+    "year": 2007,
+    "mileage": 150626,
+    "price": 22910.44
+  },
+  {
+    "vehicle_id": 25,
+    "make": "Toyota",
+    "year": 2013,
+    "mileage": 96654,
+    "price": 35849.19
+  },
+  {
+    "vehicle_id": 26,
+    "make": "Toyota",
+    "year": 2019,
+    "mileage": 73661,
+    "price": 6093.77
+  },
+  {
+    "vehicle_id": 27,
+    "make": "Toyota",
+    "year": 2014,
+    "mileage": 4245,
+    "price": 25319.72
+  },
+  {
+    "vehicle_id": 28,
+    "make": "Toyota",
+    "year": 2007,
+    "mileage": 109405,
+    "price": 6373.89
+  },
+  {
+    "vehicle_id": 29,
+    "make": "Toyota",
+    "year": 2011,
+    "mileage": 63818,
+    "price": 31849.46
+  },
+  {
+    "vehicle_id": 30,
+    "make": "Kia",
+    "year": 2010,
+    "mileage": 31292,
+    "price": 19134.53
+  },
+  {
+    "vehicle_id": 31,
+    "make": "Honda",
+    "year": 2010,
+    "mileage": 196036,
+    "price": 34110.72
+  },
+  {
+    "vehicle_id": 32,
+    "make": "Kia",
+    "year": 2017,
+    "mileage": 143324,
+    "price": 36550.46
+  },
+  {
+    "vehicle_id": 33,
+    "make": "Ford",
+    "year": 2022,
+    "mileage": 67429,
+    "price": 29041.22
+  },
+  {
+    "vehicle_id": 34,
+    "make": "Ford",
+    "year": 2008,
+    "mileage": 55424,
+    "price": 26777.91
+  },
+  {
+    "vehicle_id": 35,
+    "make": "Toyota",
+    "year": 2005,
+    "mileage": 3754,
+    "price": 31900.68
+  },
+  {
+    "vehicle_id": 36,
+    "make": "Ford",
+    "year": 2024,
+    "mileage": 84951,
+    "price": 19094.09
+  },
+  {
+    "vehicle_id": 37,
+    "make": "Ford",
+    "year": 2017,
+    "mileage": 17505,
+    "price": 4439.3
+  },
+  {
+    "vehicle_id": 38,
+    "make": "Ford",
+    "year": 2024,
+    "mileage": 120500,
+    "price": 6231.77
+  },
+  {
+    "vehicle_id": 39,
+    "make": "Honda",
+    "year": 2024,
+    "mileage": 143321,
+    "price": 34969.33
+  },
+  {
+    "vehicle_id": 40,
+    "make": "Kia",
+    "year": 2016,
+    "mileage": 68917,
+    "price": 8962.46
+  }
+]
