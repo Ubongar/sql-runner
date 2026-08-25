@@ -14,6 +14,13 @@ import numpy as np
 # (e.g. "avoid_list", "guidance", "valid_flag" no longer match).
 ID_COLUMN_PATTERN = re.compile(r"(^id$)|(_id$)", re.IGNORECASE)
 
+# Heuristic for "this text column is a category/status flag, not free text or
+# a name": low absolute number of distinct values, and those values repeat
+# a lot relative to row count. Names/descriptions are near-unique per row and
+# won't qualify, so their casing is left untouched.
+MAX_CATEGORY_UNIQUES = 20
+MAX_CATEGORY_UNIQUE_RATIO = 0.5
+
 
 def clean_data(df: pd.DataFrame):
     """
@@ -41,25 +48,62 @@ def clean_data(df: pd.DataFrame):
         if changed:
             report.append({"column": col, "issue": "whitespace/inconsistent blanks", "action": "trimmed and normalized", "count": int(changed)})
 
-    # 3. Drop fully empty columns
+    # 3. Normalize casing for low-cardinality "categorical-looking" columns
+    # (e.g. a status flag), so values that differ only by case -
+    # "COMPLETED" / "Completed" / "completed" - collapse into one value
+    # everywhere downstream: cleaning, dedup, schema samples sent to the
+    # LLM, and any exact-match SQL generated against this data. High-
+    # cardinality columns (names, free text) are skipped on purpose, since
+    # case is usually meaningful there.
+    for col in df.select_dtypes(include="object").columns:
+        non_null = df[col].dropna()
+        if non_null.empty:
+            continue
+
+        nunique = non_null.nunique()
+        if nunique == 0:
+            continue
+        if nunique > MAX_CATEGORY_UNIQUES or (nunique / len(non_null)) > MAX_CATEGORY_UNIQUE_RATIO:
+            continue  # looks like free text, names, or identifiers - leave casing alone
+
+        lower_series = non_null.str.lower()
+        if lower_series.nunique() == nunique:
+            continue  # no case-only duplicates in this column, nothing to do
+
+        # Canonical spelling = the most frequent original casing within each
+        # lowercase group (e.g. if "Completed" appears more than "COMPLETED"
+        # or "completed", "Completed" becomes the value everyone is mapped to).
+        canonical_map = non_null.groupby(lower_series).agg(lambda s: s.value_counts().idxmax()).to_dict()
+        normalized = df[col].map(lambda v: canonical_map.get(v.lower(), v) if isinstance(v, str) else v)
+        changed = int((normalized != df[col]).fillna(False).sum())
+        if changed:
+            df[col] = normalized
+            report.append({
+                "column": col,
+                "issue": "inconsistent casing across otherwise-identical values",
+                "action": "normalized to the most common casing per value",
+                "count": changed,
+            })
+
+    # 4. Drop fully empty columns
     empty_cols = [c for c in df.columns if df[c].isna().all()]
     if empty_cols:
         df = df.drop(columns=empty_cols)
         report.append({"column": empty_cols, "issue": "entirely empty column(s)", "action": "dropped", "count": len(empty_cols)})
 
-    # 4. Drop fully empty rows
+    # 5. Drop fully empty rows
     before_rows = len(df)
     df = df.dropna(axis=0, how="all")
     if len(df) < before_rows:
         report.append({"column": None, "issue": "fully empty row(s)", "action": "dropped", "count": before_rows - len(df)})
 
-    # 5. Drop exact duplicate rows
+    # 6. Drop exact duplicate rows (now benefits from casing already being normalized)
     before_rows = len(df)
     df = df.drop_duplicates()
     if len(df) < before_rows:
         report.append({"column": None, "issue": "exact duplicate rows", "action": "dropped, kept first", "count": before_rows - len(df)})
 
-    # 6. Drop duplicates by likely ID column (real "id"/"*_id" match only, not substring)
+    # 7. Drop duplicates by likely ID column (real "id"/"*_id" match only, not substring)
     id_cols = [c for c in df.columns if ID_COLUMN_PATTERN.search(c)]
     if id_cols:
         before_rows = len(df)
@@ -67,14 +111,14 @@ def clean_data(df: pd.DataFrame):
         if len(df) < before_rows:
             report.append({"column": id_cols[0], "issue": "duplicate ID rows", "action": "dropped, kept first", "count": before_rows - len(df)})
 
-    # 7. Fill missing numeric values with column median
+    # 8. Fill missing numeric values with column median
     for col in df.select_dtypes(include=[np.number]).columns:
         missing = df[col].isna().sum()
         if missing:
             df[col] = df[col].fillna(df[col].median())
             report.append({"column": col, "issue": "missing values", "action": "filled with column median", "count": int(missing)})
 
-    # 8. Fill missing categorical/text values with "Unknown"
+    # 9. Fill missing categorical/text values with "Unknown"
     for col in df.select_dtypes(include="object").columns:
         missing = df[col].isna().sum()
         if missing:
