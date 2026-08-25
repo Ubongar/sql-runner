@@ -10,7 +10,7 @@ The application is read-only from the user's point of view: it does not need a d
 - Automatic whitespace and blank-value normalization.
 - Removal of empty rows, empty columns, exact duplicate rows, and duplicate rows based on the first column that is literally named `id` or ends in `_id` (not just any column containing the letters "id").
 - Median imputation for missing numeric values and `Unknown` for missing text values.
-- Schema inference for integer, floating-point, boolean, datetime-like, and text columns — date detection now correctly ignores the `Unknown` placeholder so partially-missing date columns aren't mislabeled as text.
+- Schema inference for integer, floating-point, boolean, datetime-like, text, and image-like columns — date detection now correctly ignores the `Unknown` placeholder so partially-missing date columns aren't mislabeled as text. Text columns are also sampled for image file paths / base64-encoded image data and, if the sample matches strongly enough, reported as `BLOB` instead of `VARCHAR(255)`.
 - **Multiple files per run.** Each file becomes its own DuckDB table (name derived from the filename), so the model can generate joins and cross-table queries when more than one file is provided.
 - Natural-language query planning and SQL generation through the OpenAI Chat Completions API.
 - Feasibility responses when the model cannot satisfy a request from the available schema(s).
@@ -156,8 +156,9 @@ The inferred schema has this shape:
 | `bool` | `BOOLEAN` |
 | `datetime64[ns]` | `DATETIME` |
 | `object` | `VARCHAR(255)` |
+| detected image | `BLOB` |
 
-Object columns are additionally tested with `pandas.to_datetime`, but only on their real (non-`Unknown`) values — a date column with some missing values that were filled with `Unknown` is now correctly still labeled `DATETIME` instead of falling back to text. Unrecognized dtypes fall back to `VARCHAR(255)`. These labels describe the schema sent to the model; each DataFrame itself is registered directly with DuckDB.
+Object columns are first sampled (up to 20 non-null values) and checked for image content: either a string ending in a known image extension, or a base64-encoded string (optionally as a `data:image/...;base64,` URI) whose decoded bytes start with a known image file signature (PNG, JPEG, GIF, BMP, WEBP). If at least 80% of the sample matches, the column is labeled `BLOB` — this only labels the column for the model's benefit; no image data is actually converted to binary. Otherwise, object columns are tested with `pandas.to_datetime`, but only on their real (non-`Unknown`) values — a date column with some missing values that were filled with `Unknown` is now correctly still labeled `DATETIME` instead of falling back to text. Unrecognized dtypes fall back to `VARCHAR(255)`. These labels describe the schema sent to the model; each DataFrame itself is registered directly with DuckDB.
 
 ## LLM Planner Contract
 
@@ -296,4 +297,3 @@ There is currently no configured test command. A basic import smoke check is:
 ```bash
 python -c "import pandas, duckdb, openai, dotenv; from app.data_cleaner import clean_data; from app.schema_infer import infer_schema; print('imports ok')"
 ```
-
