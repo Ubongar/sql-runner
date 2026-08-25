@@ -60,14 +60,14 @@ Copy-Item env.example .env
 ```env
 OPENAI_API_KEY=your_api_key_here
 OPENAI_BASE_URL=https://api.openai.com/v1
-OPENAI_MODEL=gpt-4o-mini
+OPENAI_MODEL=olori-model
 ```
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
 | `OPENAI_API_KEY` | Credential passed to the OpenAI client | None |
 | `OPENAI_BASE_URL` | OpenAI-compatible API base URL | None |
-| `OPENAI_MODEL` | Model used for planning and SQL generation | `gpt-4o-mini` |
+| `OPENAI_MODEL` | Model used for planning and SQL generation | `olori-model` |
 
 `app/main.py` calls `load_dotenv()` at startup, so `.env` is loaded automatically. **Do not commit `.env` or real credentials** — add `.env` to `.gitignore` if it isn't already there.
 
