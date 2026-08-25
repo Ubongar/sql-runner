@@ -7,9 +7,10 @@ import pandas as pd
 
 
 def load_file(filepath: str) -> pd.DataFrame:
-    if filepath.endswith(".csv"):
+    lower = filepath.lower()
+    if lower.endswith(".csv"):
         return pd.read_csv(filepath)
-    elif filepath.endswith(".json"):
+    elif lower.endswith(".json"):
         return pd.read_json(filepath)
     else:
         raise ValueError("Unsupported file type. Use .csv or .json")

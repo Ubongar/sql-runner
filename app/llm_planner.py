@@ -2,12 +2,13 @@
 llm_planner.py
 Takes one or more table schemas + a user's natural-language request.
 Asks the LLM to PLAN (feasibility, columns, joins) then GENERATE SQL,
-in a single structured response. Built to handle complex queries:
+in a single structured response. Handles complex queries:
 multi-table joins, aggregates, subqueries, window functions.
 """
 
 import json
 import os
+import re
 from openai import OpenAI
 
 client = OpenAI(
@@ -16,7 +17,9 @@ client = OpenAI(
 )
 MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
-SYSTEM_PROMPT = """You are a strict MySQL/DuckDB-compatible SQL planner and generator.
+BLOCKED_KEYWORDS = ("INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "TRUNCATE", "CREATE", "REPLACE")
+
+SYSTEM_PROMPT = """You are a strict DuckDB-compatible SQL planner and generator.
 
 You will receive:
 1. One or more table schemas: {"table_name": {"columns": [{"name": str, "type": str}, ...]}, ...}
@@ -32,13 +35,13 @@ Respond ONLY with valid JSON, no markdown, no code fences, no preamble:
   "sql": "the query, or null if not feasible"
 }
 
-HARD RULES — violating any of these makes the query invalid:
+HARD RULES - violating any of these makes the query invalid:
 1. Only reference tables and columns that exist in the schemas provided. Never invent one.
 2. Every non-aggregated column in a SELECT that also contains an aggregate function
    (COUNT, SUM, AVG, MIN, MAX) MUST appear in a GROUP BY clause. If the user's request
    mixes an aggregate total with a per-row detail that can't logically coexist in one
    query, set feasible=false and explain the conflict, OR split the intent and pick the
-   single most likely correct interpretation — never emit invalid SQL to satisfy both.
+   single most likely correct interpretation - never emit invalid SQL to satisfy both.
 3. For JOINs: only join on columns that plausibly correspond across tables (matching
    names/types). If no clear join key exists between the requested tables, set
    feasible=false with the reason.
@@ -46,22 +49,22 @@ HARD RULES — violating any of these makes the query invalid:
 5. Always alias tables when more than one table is used, and qualify every column
    reference with its table alias to avoid ambiguity.
 6. If the request is ambiguous (could reasonably mean two different queries), pick the
-   most literal, common-sense interpretation and proceed — do not ask a question back.
-7. Never use SELECT * in aggregate or join queries — always name columns explicitly.
+   most literal, common-sense interpretation and proceed - do not ask a question back.
+7. Never use SELECT * in aggregate or join queries - always name columns explicitly.
 8. Double-check your own SQL mentally before returning it: does every clause reference
    real columns, does GROUP BY cover all non-aggregated selected columns, are joins
    using ON with real matching keys? If any check fails, fix the SQL or set
-   feasible=false — never return SQL you are not confident is syntactically valid.
+   feasible=false - never return SQL you are not confident is syntactically valid.
 9. This is a READ-ONLY tool. Never generate INSERT, UPDATE, DELETE, DROP, ALTER,
-   TRUNCATE, or any statement that mutates data or schema. If asked to, set
-   feasible=false with reason "read-only tool".
+   TRUNCATE, CREATE, REPLACE, or any statement that mutates data or schema. If asked
+   to, set feasible=false with reason "read-only tool".
 """
 
 
 def plan_and_generate(schemas: dict, user_request: str) -> dict:
     """
     schemas: {"table_name": {"columns": [{"name": ..., "type": ...}, ...]}, ...}
-              (pass a single-table dict for single-table use cases)
+              (pass a dict with more than one table to enable joins/cross-table SQL)
     user_request: plain-English request from the user
 
     Returns dict matching the JSON shape in SYSTEM_PROMPT.
@@ -106,11 +109,14 @@ User request: {user_request}"""
     parsed.setdefault("operation_type", None)
     parsed.setdefault("sql", None)
 
-    # safety net: block any mutating statement even if the LLM ignored the rule
+    # Safety net: block any mutating statement even if the LLM ignored the rule.
+    # Uses a WORD-BOUNDARY regex, not plain substring matching, so a real
+    # column like "updated_at" or "inserted_by" is no longer falsely blocked
+    # just because it contains the letters of a blocked keyword.
     if parsed.get("sql"):
         upper_sql = parsed["sql"].upper()
-        for keyword in ("INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "TRUNCATE"):
-            if keyword in upper_sql:
+        for keyword in BLOCKED_KEYWORDS:
+            if re.search(rf"\b{keyword}\b", upper_sql):
                 return _fallback(f"Blocked unsafe SQL containing {keyword}.")
 
     return parsed

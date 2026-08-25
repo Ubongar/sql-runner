@@ -4,8 +4,15 @@ Cleans/preprocesses a DataFrame before it's loaded into DuckDB.
 Tracks every cleaning action taken so it can be reported to the user.
 """
 
+import re
+
 import pandas as pd
 import numpy as np
+
+# Matches a column that IS "id" or ENDS in "_id" (e.g. employee_id, order_id),
+# not just any column that merely contains the letters "id" somewhere
+# (e.g. "avoid_list", "guidance", "valid_flag" no longer match).
+ID_COLUMN_PATTERN = re.compile(r"(^id$)|(_id$)", re.IGNORECASE)
 
 
 def clean_data(df: pd.DataFrame):
@@ -40,8 +47,6 @@ def clean_data(df: pd.DataFrame):
         df = df.drop(columns=empty_cols)
         report.append({"column": empty_cols, "issue": "entirely empty column(s)", "action": "dropped", "count": len(empty_cols)})
 
-    # --- DEDUPLICATION MOVED HERE ---
-    
     # 4. Drop fully empty rows
     before_rows = len(df)
     df = df.dropna(axis=0, how="all")
@@ -54,15 +59,13 @@ def clean_data(df: pd.DataFrame):
     if len(df) < before_rows:
         report.append({"column": None, "issue": "exact duplicate rows", "action": "dropped, kept first", "count": before_rows - len(df)})
 
-    # 6. Drop duplicates by likely ID column
-    id_cols = [c for c in df.columns if "id" in c.lower()]
+    # 6. Drop duplicates by likely ID column (real "id"/"*_id" match only, not substring)
+    id_cols = [c for c in df.columns if ID_COLUMN_PATTERN.search(c)]
     if id_cols:
         before_rows = len(df)
         df = df.drop_duplicates(subset=id_cols[0], keep="first")
         if len(df) < before_rows:
             report.append({"column": id_cols[0], "issue": "duplicate ID rows", "action": "dropped, kept first", "count": before_rows - len(df)})
-
-    # --- IMPUTATION HAPPENS LAST ---
 
     # 7. Fill missing numeric values with column median
     for col in df.select_dtypes(include=[np.number]).columns:
