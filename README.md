@@ -60,7 +60,7 @@ Copy-Item env.example .env
 ```env
 OPENAI_API_KEY=your_api_key_here
 OPENAI_BASE_URL=https://api.openai.com/v1
-OPENAI_MODEL=olori-model
+OPENAI_MODEL=olori-image
 ```
 
 | Variable | Purpose | Default |

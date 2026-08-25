@@ -15,7 +15,7 @@ client = OpenAI(
     api_key=os.getenv("OPENAI_API_KEY"),
     base_url=os.getenv("OPENAI_BASE_URL"),
 )
-MODEL = os.getenv("OPENAI_MODEL", "olori-model")
+MODEL = os.getenv("OPENAI_MODEL", "olori-image")
 
 BLOCKED_KEYWORDS = ("INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "TRUNCATE", "CREATE", "REPLACE")
 
