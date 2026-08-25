@@ -1,0 +1,7 @@
+[
+  {"product_id": 1, "product_name": "Pro Wireless Mouse", "category": "Electronics", "unit_price": 79.99, "product_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="},
+  {"product_id": 2, "product_name": "Mechanical Keyboard", "category": "Electronics", "unit_price": 129.50, "product_image": "https://assets.example.com/keyboard.png"},
+  {"product_id": 3, "product_name": "Ergonomic Desk Chair", "category": "Furniture", "unit_price": 249.00, "product_image": "https://assets.example.com/chair.jpg"},
+  {"product_id": 4, "product_name": "Standing Desk Mat", "category": "Furniture", "unit_price": 45.00, "product_image": "https://assets.example.com/mat.webp"},
+  {"product_id": 5, "product_name": "USB-C Multi-Port Hub", "category": "Electronics", "unit_price": 35.20, "product_image": "https://assets.example.com/hub.jpg"}
+]

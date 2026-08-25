@@ -1,0 +1,8 @@
+[
+  {"order_id": 5001, "customer_id": 101, "order_date": "2024-01-10 14:20:00", "shipping_cost": 5.99, "status": "DELIVERED"},
+  {"order_id": 5002, "customer_id": 102, "order_date": "2024-01-12 09:15:00", "shipping_cost": 0.00, "status": "DELIVERED"},
+  {"order_id": 5003, "customer_id": 101, "order_date": "2024-02-01 18:40:00", "shipping_cost": null, "status": "DELIVERED"},
+  {"order_id": 5004, "customer_id": 103, "order_date": "2024-02-14 11:05:00", "shipping_cost": 12.50, "status": "SHIPPED"},
+  {"order_id": 5005, "customer_id": 105, "order_date": "2024-03-01 16:30:00", "shipping_cost": 7.00, "status": "PROCESSING"},
+  {"order_id": 5006, "customer_id": 106, "order_date": "2024-03-15 10:10:00", "shipping_cost": null, "status": "CANCELLED"}
+]

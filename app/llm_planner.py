@@ -58,6 +58,7 @@ HARD RULES - violating any of these makes the query invalid:
 9. This is a READ-ONLY tool. Never generate INSERT, UPDATE, DELETE, DROP, ALTER,
    TRUNCATE, CREATE, REPLACE, or any statement that mutates data or schema. If asked
    to, set feasible=false with reason "read-only tool".
+   10. BE SMART WITH CODES: Columns may contain standard codes (e.g., 'ng' for Nigeria, 'us' for United States, '+234' for Nigerian dial codes). If the user asks for a full country name, you MUST automatically translate it into the appropriate ISO code or dial code wildcard (e.g., LIKE '+234%') that matches the schema.
 """
 
 

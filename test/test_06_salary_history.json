@@ -1,0 +1,9 @@
+[
+  {"history_id": 1, "employee_id": 1, "effective_date": "2019-03-01", "salary": 120000.00, "bonus": 5000.00},
+  {"history_id": 2, "employee_id": 1, "effective_date": "2021-03-01", "salary": 135000.00, "bonus": 8000.00},
+  {"history_id": 3, "employee_id": 1, "effective_date": "2023-03-01", "salary": 145000.00, "bonus": 12000.00},
+  {"history_id": 4, "employee_id": 2, "effective_date": "2020-06-15", "salary": 85000.00, "bonus": 2000.00},
+  {"history_id": 5, "employee_id": 2, "effective_date": "2022-06-15", "salary": 95000.00, "bonus": 4000.00},
+  {"history_id": 6, "employee_id": 5, "effective_date": "2019-09-23", "salary": 65000.00, "bonus": 15000.00},
+  {"history_id": 7, "employee_id": 5, "effective_date": "2022-01-01", "salary": 78000.00, "bonus": 18000.00}
+]

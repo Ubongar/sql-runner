@@ -1,0 +1,8 @@
+patient_id,guidance_code,systolic_bp,diastolic_bp,empty_col_test,visit_status
+1001,GUIDE_A,120,80,,COMPLETED
+1002,GUIDE_B,145,95,,COMPLETED
+,,,,,,
+1003,GUIDE_C,,85,,PENDING
+1004,GUIDE_D,130,,,"null"
+1004,GUIDE_D,130,,,"null"
+1005,GUIDE_E,115,75,,Unknown

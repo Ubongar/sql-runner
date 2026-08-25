@@ -1,0 +1,9 @@
+[
+  {"enrollment_id": 1, "student_id": "STU_001", "course_id": 1, "semester": "2023_FALL", "grade_letter": "A", "numeric_score": 94},
+  {"enrollment_id": 2, "student_id": "STU_001", "course_id": 3, "semester": "2023_FALL", "grade_letter": "B", "numeric_score": 83},
+  {"enrollment_id": 3, "student_id": "STU_002", "course_id": 1, "semester": "2023_FALL", "grade_letter": "A", "numeric_score": 91},
+  {"enrollment_id": 4, "student_id": "STU_002", "course_id": 2, "semester": "2024_SPRING", "grade_letter": "A", "numeric_score": 96},
+  {"enrollment_id": 5, "student_id": "STU_003", "course_id": 3, "semester": "2023_FALL", "grade_letter": "C", "numeric_score": 72},
+  {"enrollment_id": 6, "student_id": "STU_003", "course_id": 5, "semester": "2024_SPRING", "grade_letter": "B", "numeric_score": 88},
+  {"enrollment_id": 7, "student_id": "STU_004", "course_id": 4, "semester": "2024_SPRING", "grade_letter": null, "numeric_score": null}
+]

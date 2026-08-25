@@ -1,0 +1,8 @@
+[
+  {"reading_id": 1, "device_id": "SN-01", "recorded_at": "2024-04-01 00:00:00", "temp_celsius": 21.5, "humidity_pct": 45.0, "status_flag": "OK"},
+  {"reading_id": 2, "device_id": "SN-01", "recorded_at": "2024-04-01 01:00:00", "temp_celsius": 22.1, "humidity_pct": null, "status_flag": "OK"},
+  {"reading_id": 3, "device_id": "SN-01", "recorded_at": "2024-04-01 02:00:00", "temp_celsius": null, "humidity_pct": 52.0, "status_flag": "WARNING"},
+  {"reading_id": 4, "device_id": "SN-02", "recorded_at": "2024-04-01 00:00:00", "temp_celsius": 18.2, "humidity_pct": 60.1, "status_flag": "OK"},
+  {"reading_id": 5, "device_id": "SN-02", "recorded_at": "2024-04-01 01:00:00", "temp_celsius": 19.0, "humidity_pct": 59.8, "status_flag": "OK"},
+  {"reading_id": 6, "device_id": "SN-02", "recorded_at": "2024-04-01 02:00:00", "temp_celsius": 38.5, "humidity_pct": 85.0, "status_flag": "CRITICAL"}
+]

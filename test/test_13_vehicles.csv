@@ -1,0 +1,4 @@
+vehicle_id,vehicle_type,capacity_kg
+V1,Van,1000
+V2,Truck,5000
+V3,Bike,50

@@ -1,0 +1,8 @@
+customer_id  , first_name , last_name , email , city ,  signup_date 
+101,  Alice , Smith , alice@example.com , New York , 2023-01-15
+102, Bob , Jones , bob@example.com , Los Angeles , 2023-02-20
+103, Charlie , Brown , charlie@example.com , Chicago , 2023-03-10
+103, Charlie , Duplicate , charlie_dup@example.com , Chicago , 2023-03-10
+104, Diana , Prince , diana@example.com , nan , 2023-04-05
+105, Evan , Wright , evan@example.com , null , 2023-05-12
+106, Fiona , Gallagher , fiona@example.com , Chicago , 2023-06-18

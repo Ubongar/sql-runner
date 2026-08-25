@@ -1,0 +1,6 @@
+course_id,course_code,course_title,department,credits
+1,CS101,Introduction to Computer Science,Computer Science,4
+2,CS201,Data Structures and Algorithms,Computer Science,4
+3,MATH105,Linear Algebra,Mathematics,3
+4,MATH201,Multivariable Calculus,Mathematics,4
+5,ENG101,Academic Writing,Humanities,2

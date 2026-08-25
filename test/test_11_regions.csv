@@ -1,0 +1,4 @@
+region_id,region_name,target_delivery_time_mins
+R1,Northwest,45
+R2,Southeast,60
+R3,Central,30
